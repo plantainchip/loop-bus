@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^13.5.0",
     "grommet": "^2.37.0",
     "grommet-icons": "^4.12.1",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.11",
     "web-vitals": "^2.1.4"

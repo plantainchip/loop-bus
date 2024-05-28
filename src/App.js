@@ -1,4 +1,10 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
+
+import { MapContainer } from 'react-leaflet/MapContainer'
+import { TileLayer } from 'react-leaflet/TileLayer'
+
+import { useMap } from 'react-leaflet/hooks'
+
 
 import {
   Box,
@@ -15,8 +21,9 @@ import { deepMerge } from "grommet/utils";
 import { Moon, Sun } from "grommet-icons";
 
 import AppBar from "./components/AppBar";
-import CardTemplate from "./components/CardTemplate";
+import Stop from "./components/Stop";
 
+import stops from "./stops.json"
 
 const theme = deepMerge(grommet, {
   global: {
@@ -32,13 +39,23 @@ const theme = deepMerge(grommet, {
 });
 
 function App() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
+
+  const stopList = stops.map(stop => 
+    <Stop 
+      key={stop.name} 
+      name={stop.name}  
+      location={stop.location}  
+      times={stop.times}  
+    />
+  )
+
   return (
     <Grommet theme={theme} full themeMode={dark ? "dark" : "light"}>
       <Page>
         <AppBar>
-          <Text size="large">My App</Text>
-          <Button
+          <Text size="large">Glen Cove Loop Bus</Text>
+          {/* <Button
             a11yTitle={dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             icon={dark ? <Moon /> : <Sun />}
             onClick={() => setDark(!dark)}
@@ -54,14 +71,22 @@ function App() {
               ),
               plain: true,
             }}
-          />
+          /> */}
         </AppBar>
         <PageContent>
-          <PageHeader title="Welcome to Grommet!" />
-          <Grid columns="medium" gap="large" pad={{ bottom: "large" }}></Grid>
-          <CardTemplate title={"Card 1"} />
-          <CardTemplate title={"Card 2"} />
-          <CardTemplate title={"Card 3"} />
+          <br />
+
+          <MapContainer center={[40.8673, -73.6337]} zoom={13.5} scrollWheelZoom={true}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            
+              {stopList}
+
+          </MapContainer>
+
+
         </PageContent>
       </Page>
     </Grommet>
