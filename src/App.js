@@ -1,24 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 
 import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
 
-import { useMap } from 'react-leaflet/hooks'
+
 
 
 import {
-  Box,
-  Button,
-  Grid,
   Grommet,
   grommet,
   Page,
   PageContent,
-  PageHeader,
   Text,
 } from "grommet";
 import { deepMerge } from "grommet/utils";
-import { Moon, Sun } from "grommet-icons";
 
 import AppBar from "./components/AppBar";
 import Stop from "./components/Stop";
@@ -39,7 +34,7 @@ const theme = deepMerge(grommet, {
 });
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark] = useState(false);
 
   const stopList = stops.map(stop => 
     <Stop 

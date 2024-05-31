@@ -1,6 +1,7 @@
 import { Marker } from 'react-leaflet/Marker'
 import { Popup } from 'react-leaflet/Popup'
 
+
 function convertTimeToToday(timeString) {
   const today = new Date();
   const [hours, minutes, period] = timeString.split(/:| /);
@@ -13,6 +14,7 @@ function convertTimeToToday(timeString) {
   const dateObject = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours24, parseInt(minutes));
   return dateObject;
 }
+
 
 
 function Stop({name, location, times}) {
@@ -36,5 +38,6 @@ function Stop({name, location, times}) {
       </div>
     </Popup>
   </Marker>
+  
 }
 export default Stop;
