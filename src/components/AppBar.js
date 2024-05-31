@@ -4,8 +4,11 @@ import {
 
 const AppBar = (props) => (
     <Header
+      alignSelf="center"
       background="brand"
-      pad={{ left: "medium", right: "small", vertical: "small" }}
+      width="100%"
+      justify="center"
+      pad={{ left: "medium", right: "medium", vertical: "small" }}
       elevation="medium"
       {...props}
     />
