@@ -19,6 +19,7 @@ import { deepMerge } from "grommet/utils";
 
 import AppBar from "./components/AppBar";
 import Stop from "./components/Stop";
+import Schedule from "./components/Schedule";
 
 import stops from "./stops.json"
 
@@ -72,6 +73,8 @@ function App() {
               </MapContainer>
             </Tab>
             <Tab title="Schedule">
+              <br />
+              <Schedule title="The Stops 🚐💨 " stops={stops} />
             </Tab>
           </Tabs>
 

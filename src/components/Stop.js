@@ -30,7 +30,8 @@ function Stop({name, location, times}) {
 
     return <li key={time}>{time}</li>
   })
-  return <Marker position={location}>
+  return <Marker
+    position={location}>
     <Popup>
       <b>{name}</b> <br />
       <div>
