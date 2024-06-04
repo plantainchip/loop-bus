@@ -7,7 +7,7 @@ export default function Schedule({ title, stops }) {
     return <div key={stop.name}>
       <br />
       <Accordion>
-        <AccordionPanel label={
+        <AccordionPanel label= {
           <h3>{stop.name}</h3>
         }>
           <Box pad="medium" background="#ffdf83">
