@@ -1,4 +1,4 @@
-import { DropButton, List, Box } from "grommet";
+import { Accordion, AccordionPanel, List, Text, Box } from "grommet";
 import { useState } from 'react';
 
 export default function Schedule({ title, stops }) {
@@ -6,15 +6,16 @@ export default function Schedule({ title, stops }) {
   const stopList = stops.map(stop => {
     return <div key={stop.name}>
       <br />
-      <DropButton
-        size="large"
-        style={{width: "100%"}}
-        label={stop.name}
-        dropAlign={{ top: 'bottom', right: 'right' }}
-        dropContent={
-          <List border={false} data={stop.times} /> 
-        }
-      />   
+      <Accordion>
+        <AccordionPanel label={
+          <h3>{stop.name}</h3>
+        }>
+          <Box pad="medium" background="#ffdf83">
+            <Text><List border={false} data={stop.times} /> </Text>
+          </Box>
+        </AccordionPanel>
+      </Accordion>
+
     </div>
   });
 
