@@ -1,23 +1,20 @@
-import { List } from "grommet";
+import { DropButton, List, Box } from "grommet";
+import { useState } from 'react';
 
+export default function Schedule({ title, stops }) {
 
-
-
-
-function Schedule({ title, stops }) {
   const stopList = stops.map(stop => {
     return <div key={stop.name}>
-      {/* <p>{stop.name}</p>
-      <List data={stop.times} /> */}
       <br />
-      <details>
-        <summary>
-          {stop.name}
-        </summary>
-        <List data={stop.times} />
-      </details>
-
-
+      <DropButton
+        size="large"
+        style={{width: "100%"}}
+        label={stop.name}
+        dropAlign={{ top: 'bottom', right: 'right' }}
+        dropContent={
+          <List border={false} data={stop.times} /> 
+        }
+      />   
     </div>
   });
 
@@ -32,4 +29,3 @@ function Schedule({ title, stops }) {
     </div>
   );
 }
-export default Schedule;
