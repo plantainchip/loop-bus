@@ -1,5 +1,4 @@
 import { Accordion, AccordionPanel, List, Text, Box } from "grommet";
-import { useState } from 'react';
 
 export default function Schedule({ title, stops }) {
 

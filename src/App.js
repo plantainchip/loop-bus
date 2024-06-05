@@ -25,6 +25,11 @@ import stops from "./stops.json"
 
 const theme = deepMerge(grommet, {
   global: {
+    tab:{
+      active: {
+        color: "#FFAA15"
+      }
+    },
     colors: {
       brand: '#ffcb04',
     },
@@ -49,7 +54,7 @@ function App() {
   )
 
   return (
-    <Grommet theme={theme} full themeMode={dark ? "dark" : "light"}>
+    <Grommet theme={theme} full >
 
       <Page>
         <AppBar>
