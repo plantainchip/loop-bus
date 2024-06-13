@@ -1,7 +1,55 @@
 import { Accordion, AccordionPanel, List, Text, Box } from "grommet";
 
 export default function Schedule({ title, stops }) {
+  console.log(stops);
+  let nextStop = null;
+  let temp = null;
+  let earliestStop = null;
+  let temp2 = null;
+  for (let i = 0; i < stops.length; i++) {
+    const stop = stops[i];
+    const timeObjs = stop.times.map(time => {
+      const [timeStr, period] = time.split(" ");
+      const [hour, min] = timeStr.split(":");
+      return { hour, min, period, name: stop.name };
+    });
+    const now = new Date();
+    // now.setHours(11); for testing
+    for (let j = 0; j < timeObjs.length; j++) {
+      const timeObj = timeObjs[j];
+      let { hour, min, period, name } = timeObj;
+      hour = parseInt(hour);
+      min = parseInt(min);
+      if (period === "PM") {
+        hour += 12;
+      }
+      const stopTime = new Date();
+      stopTime.setHours(hour);
+      stopTime.setMinutes(min);
+      
+      if (stopTime > now) {
+        if (temp === null) {
+          temp = stopTime;
+          nextStop = name;
+        } else if (stopTime < temp) {
+          temp = stopTime;
+          nextStop = name;
+        }
+      }
 
+      // maitri code
+      if (earliestStop === null) {
+        earliestStop = stopTime;
+        temp2 = name;
+      } else if (stopTime < earliestStop) {
+        earliestStop = stopTime;
+        temp2 = name;
+      }
+      // maitri code
+
+    }
+  }
+  console.log("next stop 🚏", nextStop,"Earliest Stop:", earliestStop.getHours(), earliestStop.getMinutes());
   const stopList = stops.map(stop => {
     return <div key={stop.name}>
       <br />
@@ -18,7 +66,7 @@ export default function Schedule({ title, stops }) {
     </div>
   });
 
-  console.log(stopList);
+  // console.log(stopList);
 
   return (
     <div>
