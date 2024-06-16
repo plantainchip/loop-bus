@@ -4,3 +4,7 @@
   border: 5px solid #FFCA58;
   /* margin: 0 auto; */
 }
+
+#nextStopInfo {
+  color: deepskyblue;
+}

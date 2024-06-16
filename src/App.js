@@ -35,7 +35,7 @@ const theme = deepMerge(grommet, {
     },
     font: {
       family: "Roboto",
-      size: "18px",
+      size: "18px",                                                                                                      
       height: "20px",
     },
   },
@@ -79,7 +79,7 @@ function App() {
             </Tab>
             <Tab title="Schedule">
               <br />
-              <Schedule title="The Stops 🚐💨 " stops={stops} />
+              <Schedule stops={stops} />
             </Tab>
           </Tabs>
 

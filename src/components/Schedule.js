@@ -14,7 +14,7 @@ export default function Schedule({ title, stops }) {
       return { hour, min, period, name: stop.name };
     });
     const now = new Date();
-    // now.setHours(11); for testing
+    now.setHours(11); // for testing purposes 
     for (let j = 0; j < timeObjs.length; j++) {
       const timeObj = timeObjs[j];
       let { hour, min, period, name } = timeObj;
@@ -49,6 +49,9 @@ export default function Schedule({ title, stops }) {
 
     }
   }
+  if (nextStop === null) {
+    nextStop = "No more stops today";
+  }
   console.log("next stop 🚏", nextStop,"Earliest Stop:", earliestStop.getHours(), earliestStop.getMinutes());
   const stopList = stops.map(stop => {
     return <div key={stop.name}>
@@ -72,6 +75,8 @@ export default function Schedule({ title, stops }) {
     <div>
       <h1>{title}</h1>
       <div>
+        <h1>Next Stop 🚐💨</h1>
+        <h2 id="nextStopInfo">{nextStop}</h2>
         {stopList}
       </div>
     </div>
