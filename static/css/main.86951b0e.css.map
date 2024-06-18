@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.86951b0e.css","mappings":"AAAA,mBAGE,wBAAyB,CADzB,WAAY,CADZ,cAIF","sources":["main.css"],"sourcesContent":[".leaflet-container {\n  max-width: 100%;\n  height: 75vh;\n  border: 5px solid #FFCA58;\n  /* margin: 0 auto; */\n}"],"names":[],"sourceRoot":""}
