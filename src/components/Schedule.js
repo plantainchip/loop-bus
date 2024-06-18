@@ -14,7 +14,7 @@ export default function Schedule({ title, stops }) {
       return { hour, min, period, name: stop.name };
     });
     const now = new Date();
-    now.setHours(11); // for testing purposes 
+    // now.setHours(11); // for testing purposes 
     for (let j = 0; j < timeObjs.length; j++) {
       const timeObj = timeObjs[j];
       let { hour, min, period, name } = timeObj;
@@ -30,10 +30,10 @@ export default function Schedule({ title, stops }) {
       if (stopTime > now) {
         if (temp === null) {
           temp = stopTime;
-          nextStop = name;
+          nextStop = hour + ":" + min + " " + period + " at " + name;
         } else if (stopTime < temp) {
           temp = stopTime;
-          nextStop = name;
+          nextStop = hour + ":" + min + " " + period + " at " + name;
         }
       }
 
